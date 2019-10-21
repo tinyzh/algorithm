@@ -28,14 +28,12 @@ const isIntegrated = (arr,left,right) => {
 
 // console.log(getLen(arr))
 
-
-
 const getLeg2 = (arr) => {
     if(arr === null || arr.length === 0) return 0
     let len = 0
     let max = 0
     let min = 0
-    let temp = new Set([]) // 使用set结构去重
+    let temp = new Set() // 使用set结构去重
 
     for(let i = 0; i < arr.length; i++){
         min = arr[i]
@@ -47,10 +45,10 @@ const getLeg2 = (arr) => {
             max = Math.max(max,arr[j])
             min = Math.min(min,arr[j])
             if(max-min == j - i){
-                len = Math.max(len,j - i + 1)
+                // len = Math.max(len,j - i + 1)
+                len = Math.max(len,temp.size)
             }
         }
-        console.log(max,min)
         temp.clear()
     }
     return len
